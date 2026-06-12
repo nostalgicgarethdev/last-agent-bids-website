@@ -1,0 +1,31 @@
+{
+  "name": "last-agent-bids-website",
+  "version": "1.0.0",
+  "description": "Website for Last Agent Bids - an on-chain autonomous agent game on Solana",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "serve public",
+    "build": "echo 'No build step needed for static site'",
+    "lint": "eslint src/",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "solana",
+    "blockchain",
+    "game",
+    "web3",
+    "defi",
+    "nft"
+  ],
+  "author": "Last Agent Bids Team",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0",
+    "eslint": "^8.45.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
