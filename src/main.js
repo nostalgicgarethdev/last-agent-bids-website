@@ -375,6 +375,76 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Modal Functionality
+    const walletModal = document.getElementById('walletModal');
+    const howToPlayModal = document.getElementById('howToPlayModal');
+    const walletModalClose = document.getElementById('walletModalClose');
+    const howToPlayModalClose = document.getElementById('howToPlayModalClose');
+    const howToPlayModalGotIt = document.getElementById('howToPlayModalGotIt');
+    const walletModalConnect = document.getElementById('walletModalConnect');
+
+    // Open wallet modal
+    if (connectWalletBtn && walletModal) {
+        connectWalletBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default wallet connection for now
+            walletModal.style.display = 'block';
+        });
+    }
+
+    // Open how to play modal
+    if (learnMoreBtn && howToPlayModal) {
+        learnMoreBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default scroll behavior
+            howToPlayModal.style.display = 'block';
+        });
+    }
+
+    // Close modals
+    if (walletModalClose && walletModal) {
+        walletModalClose.addEventListener('click', function() {
+            walletModal.style.display = 'none';
+        });
+    }
+
+    if (howToPlayModalClose && howToPlayModal) {
+        howToPlayModalClose.addEventListener('click', function() {
+            howToPlayModal.style.display = 'none';
+        });
+    }
+
+    if (howToPlayModalGotIt && howToPlayModal) {
+        howToPlayModalGotIt.addEventListener('click', function() {
+            howToPlayModal.style.display = 'none';
+        });
+    }
+
+    // Close modal when clicking outside content
+    window.addEventListener('click', function(event) {
+        if (event.target === walletModal) {
+            walletModal.style.display = 'none';
+        }
+        if (event.target === howToPlayModal) {
+            howToPlayModal.style.display = 'none';
+        }
+    });
+
+    // Wallet connection from modal (reuses existing wallet connection logic)
+    if (walletModalConnect) {
+        walletModalConnect.addEventListener('click', function() {
+            // Trigger the actual wallet connection
+            walletModal.style.display = 'none';
+
+            // Trigger wallet connection using existing logic
+            if (typeof solanaWeb3 === 'undefined' || typeof solanaWalletAdapterBase === 'undefined' || typeof solanaWalletAdapterWallets === 'undefined') {
+                // Fallback to simulation
+                connectWalletBtn.click();
+            } else {
+                // Use real wallet adapter
+                connectWalletBtn.click();
+            }
+        });
+    }
+
     // Luck Roll Button Handler
     if (rollLuckBtn) {
         rollLuckBtn.addEventListener('click', function() {

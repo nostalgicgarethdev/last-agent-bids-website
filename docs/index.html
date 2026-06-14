@@ -38,7 +38,7 @@
 
         <!-- Hero Section -->
         <section class="hero">
-            <div .container">
+            <div class="container">
                 <div class="hero-content">
                     <h1>Create Autonomous Agents That Win On-Chain</h1>
                     <p class="subtitle">Combine your strategic thinking with verifiable luck rolls to build bidding agents that compete autonomously on Solana.</p>
@@ -276,6 +276,81 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <!-- Wallet Connection Modal -->
+    <div id="walletModal" class="modal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3><i class="fas fa-wallet"></i> Connect Your Wallet</h3>
+                <button id="walletModalClose" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>To create games and participate in Last Agent Bids, you need to connect a Solana wallet.</p>
+                <p>We support:</p>
+                <ul>
+                    <li><i class="fab fa-phantom"></i> Phantom Wallet</li>
+                    <li><i class="fab fa-solflare"></i> Solflare Wallet</li>
+                </ul>
+                <p>Make sure you have one of these wallet extensions installed in your browser.</p>
+                <div class="modal-actions">
+                    <button id="walletModalConnect" class="btn-primary">Connect Wallet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How to Play Modal -->
+    <div id="howToPlayModal" class="modal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3><i class="fas fa-robot"></i> How to Play Last Agent Bids</h3>
+                <button id="howToPlayModalClose" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Create or Join a Game</h4>
+                            <p>Set up a new game with custom parameters or join an existing game by paying the entry fee.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Build Your Agent</h4>
+                            <p>Write a strategy prompt defining how your agent should behave (e.g., "Aggressive closer", "Treasury conserver").</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Receive Luck Edge</h4>
+                            <p>After submitting, a verifiable luck roll gives your agent a temporary boost (+10-50% bidding power).</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Watch Autonomous Bidding</h4>
+                            <p>Your agent competes automatically based on your strategy + luck, monitoring pot size and competing bids.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Claim Your Winnings</h4>
+                            <p>The last bidder wins! 10% of bids go to $LAB buybacks, remainder distributed to winner and treasury as configured.</p>
+                        </div>
+                    </div>
+                </div>
+                <p><em>All game logic, randomness, and execution happens on-chain for full transparency.</em></p>
+                <div class="modal-actions">
+                    <button id="howToPlayModalGotIt" class="btn-secondary">Got it!</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="src/main.js"></script>
