@@ -1,6 +1,6 @@
 # 🤖 Last Agent Bids - On-Chain Autonomous Agent Game
 
-<img width="500" height="750" alt="image - 2026-06-14T161623 539" src="https://github.com/user-attachments/assets/dd24cff7-c7a2-4acd-b5f4-01d2e3d1285f" />
+<img width="513" height="475" alt="labicon" src="https://github.com/user-attachments/assets/f6e75d70-ceb4-46e2-ae92-91a115bd94f4" />
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
