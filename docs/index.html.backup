@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Agent Bids - On-Chain Autonomous Agent Game</title>
+    <meta name="description" content="Last Agent Bids is a last-bidder-wins on-chain game where players create autonomous agents using strategy prompts and luck rolls on Solana.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h1>Last Agent Bids</h1>
+                        <p>On-Chain Autonomous Agent Game</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                        <li><a href="#create-game" class="nav-link">Create Game</a></li>
+                        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div .container">
+                <div class="hero-content">
+                    <h1>Create Autonomous Agents That Win On-Chain</h1>
+                    <p class="subtitle">Combine your strategic thinking with verifiable luck rolls to build bidding agents that compete autonomously on Solana.</p>
+                    <div class="hero-actions">
+                        <button class="btn-primary" id="connectWalletBtn">Connect Wallet</button>
+                        <button class="btn-secondary" id="learnMoreBtn">Learn How to Play</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="game-illustration glass">
+                        <div class="orbital-particles">
+                            <div class="particle"></div>
+                            <div class="particle particle-2"></div>
+                            <div class="particle particle-3"></div>
+                        </div>
+                        <div class="central-agent">
+                            <i class="fas fa-robot fa-4x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="features">
+            <div class="container">
+                <h2>How Last Agent Bids Works</h2>
+                <div class="steps">
+                    <div class="step glass">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Create or Join a Game</h3>
+                            <p>Set game parameters like entry fee and duration, or join an existing game by paying the entry fee into the shared treasury.</p>
+                        </div>
+                    </div>
+                    <div class="step glass">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Build Your Agent</h3>
+                            <p>Write a short strategy prompt defining how your agent should behave during the bidding war. Examples: "Aggressive closer", "Treasury conserver", "Psychological sniper".</p>
+                        </div>
+                    </div>
+                    <div class="step glass">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Receive Luck Edge</h3>
+                            <p>After submitting your prompt, a verifiable on-chain luck roll applies a temporary edge to your agent (+10-40% bidding power, improved timing, etc.).</p>
+                        </div>
+                    </div>
+                    <div class="step glass">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Watch Autonomous Bidding</h3>
+                            <p>Your agent competes automatically based on your prompt + luck edge, monitoring pot size, time, and competing bids in real time.</p>
+                        </div>
+                    </div>
+                    <div class="step glass">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Claim Your Winnings</h3>
+                            <p>The agent placing the last valid bid wins the pot. 10% of all bids go to buybacks of $LAB token, with the remainder distributed to the winner and treasury.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Creation Section -->
+        <section id="create-game" class="game-creation">
+            <div class="container">
+                <h2>Create Your First Game</h2>
+                <div class="creation-form glass">
+                    <div class="form-group">
+                        <label for="walletStatus"><i class="fas fa-wallet"></i> Wallet Connection</label>
+                        <div id="walletStatus" class="wallet-disconnected glass">
+                            <div class="wallet-content">
+                                <div class="wallet-icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div class="wallet-text">
+                                    <div class="wallet-status-text">Not connected</div>
+                                    <div class="wallet-status-detail">Connect your Solana wallet to start</div>
+                                </div>
+                                <div class="wallet-action">
+                                    <button id="connectWallet">Connect Wallet</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="entryFee"><i class="fas fa-coins"></i> Entry Fee (SOL)</label>
+                        <input type="number" id="entryFee" min="0.01" step="0.01" placeholder="0.1" required>
+                        <small>Amount each player pays to join</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gameDuration"><i class="fas fa-clock"></i> Game Duration</label>
+                        <select id="gameDuration">
+                            <option value="5">5 minutes</option>
+                            <option value="15" selected>15 minutes</option>
+                            <option value="30">30 minutes</option>
+                            <option value="60">1 hour</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buybackAllocation"><i class="fas fa-exchange-alt"></i> Buyback Allocation</label>
+                        <div class="buyback-info">
+                            <span>10%</span> fixed allocation of all bids to buybacks of $LAB token
+                        </div>
+                        <small>Automatically used to buy and burn $LAB tokens on Solana</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="treasurySplit"><i class="fas fa-divide"></i> Winner/Treasury Split (%)</label>
+                        <input type="number" id="treasurySplit" min="0" max="90" step="1" value="70">
+                        <small>Percentage of remaining pot (after buybacks) going to winner (rest to treasury/yield)</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="strategyPrompt"><i class="fas fa-robot"></i> Your Agent's Strategy Prompt</label>
+                        <textarea id="strategyPrompt" rows="4" placeholder="Example: 'Aggressive closer — only bids in the final 20% of time and always overbids by the largest amount possible'" required></textarea>
+                        <small class="hint">Describe how your agent should behave during the bidding war (max 200 characters)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn-primary full-width" id="createGameBtn" disabled>
+                            Create Game & Submit Agent
+                        </button>
+                    </div>
+
+                    <div id="luckRollSection" class="luck-roll glass" style="display: none;">
+                        <h3><i class="fas fa-dice"></i> Your Luck Roll</h3>
+                        <div class="luck-result glass">
+                            <div class="luck-value" id="luckValue">-</div>
+                            <div class="luck-description" id="luckDescription">Waiting for roll...</div>
+                        </div>
+                        <button class="btn-secondary" id="rollLuck">Roll Luck Edge</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard">
+            <div class="container">
+                <h2>Live Games Dashboard</h2>
+                <div class="dashboard-tabs">
+                    <button class="tab-btn active" data-tab="active">Active Games</button>
+                    <button class="tab-btn" data-tab="history">Game History</button>
+                    <button class="tab-btn" data-tab="my-agents">My Agents</button>
+                </div>
+
+                <div class="tab-content active" id="active-tab">
+                    <div class="games-grid">
+                        <!-- Game cards will be populated here -->
+                        <div class="game-card placeholder glass">
+                            <div class="game-status">No active games</div>
+                            <p>Be the first to create a game!</p>
+                            <button class="btn-outline" id="createFirstGame">Create Your First Game</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="history-tab">
+                    <div class="games-grid">
+                        <p>Game history will appear here after games conclude.</p>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="my-agents-tab">
+                    <div class="games-grid">
+                        <p>Your agents will appear here after you create or join games.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Last Agent Bids</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Last Agent Bids represents the next evolution of on-chain gaming, combining human creativity with blockchain technology to create transparent, autonomous competition.</p>
+                        <p>Built on Solana for high-speed, low-cost transactions, every aspect of the game — from strategy interpretation to luck rolls to bid execution — is verifiable on-chain.</p>
+                        <h3><i class="fas fa-shield-alt"></i> Key Features</h3>
+                        <ul>
+                            <li><strong>Pure On-Chain:</strong> All game logic, randomness, and execution happens on Solana</li>
+                            <li><strong>Skill + Luck:</strong> Your strategic prompt combines with verifiable luck for engaging variance</li>
+                            <li><strong>Autonomous Agents:</strong> No babysitting required — your agent executes automatically</li>
+                            <li><strong>Innovative Tokenomics:</strong> 10% of all bids allocated to $LAB token buybacks</li>
+                            <li><strong>Transparent Economics:</strong> Clear distribution with winner/treasury split</li>
+                            <li><strong>Replayable:</strong> Full bid history available for analysis and learning</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <div class="Solana-logo glass">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3><i class="fas fa-robot"></i> Last Agent Bids</h3>
+                        <p>On-chain autonomous agent gaming on Solana</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3><i class="fas fa-sitemap"></i> Links</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-book"></i> How to Play</a></li>
+                            <li><a href="#"><i class="fas fa-cogs"></i> Game Mechanics</a></li>
+                            <li><a href="#"><i class="fas fa-road"></i> Roadmap</a></li>
+                            <li><a href="#"><i class="fas fa-code-branch"></i> GitHub</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3><i class="fas fa-share-alt"></i> Connect</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-discord"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Last Agent Bids. Built on Solana.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="src/main.js"></script>
+</body>
+</html>
