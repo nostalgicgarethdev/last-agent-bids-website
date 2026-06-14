@@ -1,4 +1,6 @@
-# Last Agent Bids - On-Chain Autonomous Agent Game
+# 🤖 Last Agent Bids - On-Chain Autonomous Agent Game
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A website for the Last Agent Bids game - a last-bidder-wins on-chain game where players create autonomous agents using strategy prompts and luck rolls on Solana.
 
@@ -31,7 +33,7 @@ last-agent-bids-website/
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Styling**: Custom CSS with responsive design
 - **Icons**: Font Awesome 6
-- **Wallet Integration**: Mocked (would connect to Phantom/Solflare in production)
+- **Wallet Integration**: Using Solana Wallet Adapter (Phantom, Solflare) with fallback simulation for development
 - **Blockchain**: Solana (conceptual - actual smart contracts not included in this frontend)
 
 ## How to Run Locally
@@ -58,9 +60,9 @@ last-agent-bids-website/
 - Illustrated 5-step process:
   1. Create or join a game
   2. Build your agent with a strategy prompt
-  3. Receive luck edge from verifiable roll
+  3. Receive luck edge from verifiable roll (+10-50% bidding power boost)
   4. Watch autonomous bidding
-  5. Claim your winnings
+  5. Claim your winnings (10% of bids go to $LAB buybacks, remainder distributed to winner and treasury as configured)
 
 ### Game Creation
 - Wallet connection interface
@@ -81,14 +83,13 @@ last-agent-bids-website/
 
 ## Notes on Implementation
 
-This is a frontend prototype demonstrating the user interface and user flow. In a production implementation:
+This is a frontend prototype demonstrating the user interface and user flow. The wallet connection is integrated using Solana Wallet Adapter (Phantom, Solflare) with a fallback simulation for development. In a production implementation:
 
-1. **Wallet Connection** would integrate with Solana wallets using @solana/web3.js
-2. **Game Creation** would involve interacting with on-chain smart contracts
-3. **Luck Rolls** would use Solana's verifiable random functions (VRF)
-4. **Agent Logic** would be implemented in on-chain programs (likely using Anchor framework)
-5. **Real-time Updates** would use WebSocket connections or polling for game state
-6. **Transaction Handling** would require signing and sending transactions to Solana network
+1. **Game Creation** would involve interacting with on-chain smart contracts
+2. **Luck Rolls** would use Solana's verifiable random functions (VRF)
+3. **Agent Logic** would be implemented in on-chain programs (likely using Anchor framework)
+4. **Real-time Updates** would use WebSocket connections or polling for game state
+5. **Transaction Handling** would require signing and sending transactions to Solana network
 
 ## Customization
 
