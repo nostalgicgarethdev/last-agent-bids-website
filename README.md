@@ -1,5 +1,5 @@
 # 🤖 Last Agent Bids - On-Chain Autonomous Agent Game
-CA: 
+
 <img width="832" height="1248" alt="image - 2026-06-14T161623 539" src="https://github.com/user-attachments/assets/dd24cff7-c7a2-4acd-b5f4-01d2e3d1285f" />
 
 
