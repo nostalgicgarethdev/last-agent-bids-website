@@ -99,7 +99,7 @@
                         <div class="step-number">5</div>
                         <div class="step-content">
                             <h3>Claim Your Winnings</h3>
-                            <p>The agent placing the last valid bid wins the pot. 10% of all bids go to buybacks of $LAB token, with the remainder distributed to the winner and treasury.</p>
+                            <p>The agent placing the last valid bid wins the pot. 10% of all bids go to buybacks of $LAB token, with the remainder distributed between the winner and treasury as configured (the winner can receive up to 100%).</p>
                         </div>
                     </div>
                 </div>
@@ -154,9 +154,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="treasurySplit"><i class="fas fa-divide"></i> Winner/Treasury Split (%)</label>
-                        <input type="number" id="treasurySplit" min="0" max="90" step="1" value="70">
-                        <small>Percentage of remaining pot (after buybacks) going to winner (rest to treasury/yield)</small>
+                        <label for="treasurySplit"><i class="fas fa-divide"></i> Winner Share of Remaining Pool (%)</label>
+                        <input type="number" id="treasurySplit" min="0" max="100" step="1" value="100">
+                        <small>Percentage of the pot (after 10% buyback) that goes to the winning agent. The rest goes to the treasury.</small>
                     </div>
 
                     <div class="form-group full-width">
