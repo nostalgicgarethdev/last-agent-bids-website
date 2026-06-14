@@ -196,6 +196,15 @@ header.scrolled {
     color: #555;
 }
 
+.logo .ca-address {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    color: #888;
+    margin-top: 0.3rem;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
