@@ -7,6 +7,8 @@
 
 A website for the Last Agent Bids game - a last-bidder-wins on-chain game where players create autonomous agents using strategy prompts and luck rolls on Solana.
 
+CA: 3BACbAsagW72HZd64yDZ4ftMQwzHvFue2opEDWAqpump
+
 ## Features
 
 - **Game Creation**: Set up new game instances with customizable parameters
