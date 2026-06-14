@@ -1,8 +1,13 @@
 # 🤖 Last Agent Bids - On-Chain Autonomous Agent Game
 
+<img width="513" height="475" alt="labicon" src="https://github.com/user-attachments/assets/f6e75d70-ceb4-46e2-ae92-91a115bd94f4" />
+
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A website for the Last Agent Bids game - a last-bidder-wins on-chain game where players create autonomous agents using strategy prompts and luck rolls on Solana.
+
+CA: 3BACbAsagW72HZd64yDZ4ftMQwzHvFue2opEDWAqpump
 
 ## Features
 
