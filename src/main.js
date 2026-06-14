@@ -428,19 +428,69 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Wallet connection from modal (reuses existing wallet connection logic)
+    // Wallet connection from modal
     if (walletModalConnect) {
         walletModalConnect.addEventListener('click', function() {
-            // Trigger the actual wallet connection
             walletModal.style.display = 'none';
 
-            // Trigger wallet connection using existing logic
+            // Directly handle wallet connection without re-triggering modal opening logic
             if (typeof solanaWeb3 === 'undefined' || typeof solanaWalletAdapterBase === 'undefined' || typeof solanaWalletAdapterWallets === 'undefined') {
-                // Fallback to simulation
-                connectWalletBtn.click();
+                // Fallback to simulation - replicate the logic from the fallback section
+                const isConnected = walletStatus.classList.contains('wallet-connected');
+
+                if (isConnected) {
+                    // Disconnect
+                    walletStatus.classList.remove('wallet-connected');
+                    walletStatus.classList.add('wallet-disconnected');
+                    walletStatus.innerHTML = `
+                        <div class="wallet-content">
+                            <div class="wallet-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="wallet-text">
+                                <div class="wallet-status-text">Not connected</div>
+                                <div class="wallet-status-detail">Connect your Solana wallet to start</div>
+                            </div>
+                            <div class="wallet-action">
+                                <button id="connectWallet">Connect Wallet</button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Connect
+                    walletStatus.classList.remove('wallet-disconnected');
+                    walletStatus.classList.add('wallet-connected');
+                    walletStatus.innerHTML = `
+                        <div class="wallet-content">
+                            <div class="wallet-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="wallet-text">
+                                <div class="wallet-status-text">Connected</div>
+                                <div class="wallet-status-detail">Your Solana wallet is connected</div>
+                            </div>
+                            <div class="wallet-action">
+                                <button id="disconnectWallet">Disconnect</button>
+                            </div>
+                        </div>
+                    `;
+
+                    // Show luck roll section when wallet connects
+                    const luckRollSection = document.getElementById('luckRollSection');
+                    if (luckRollSection) {
+                        luckRollSection.style.display = 'block';
+                    }
+                }
+
+                validateForm();
             } else {
-                // Use real wallet adapter
-                connectWalletBtn.click();
+                // Use real wallet adapter - trigger the connection
+                walletAdapter.connect().then(() => {
+                    // Connection success handled by 'connect' event listener
+                }).catch((error) => {
+                    console.error('Wallet connection error:', error);
+                    alert('Failed to connect wallet. Please check your wallet extension and try again.');
+                });
             }
         });
     }
